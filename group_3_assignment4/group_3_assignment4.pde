@@ -13,7 +13,7 @@ Wheel frontWheel;
 Wheel backWheel;
 
 float x = 500;
-float t = 0.9;
+float t = 0.0;
 
 void setup() {
     size(500,500);
@@ -92,7 +92,6 @@ void draw() {
   
   x = position;
   
-  println(x);
   
   translate(x,200);  
   redCar.display();
@@ -103,7 +102,8 @@ void draw() {
   translate(200,0);
   backWheel.spin();
   
-  t += .01;
+  if (t <= 2.0) {
+  t += .01;}
   
 
 }

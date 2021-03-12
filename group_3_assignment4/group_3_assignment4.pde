@@ -1,8 +1,30 @@
+
+Car redCar;
+
+Wheel frontWheel;
+Wheel backWheel;
+
+float x = 500;
+float t = 0.9;
+
 void setup() {
     size(500,500);
     background(160,238,240);
     
-    fill(153,182,183);
+    
+    
+    
+    redCar = new Car();
+    
+    frontWheel = new Wheel();
+    backWheel = new Wheel();
+
+}
+
+
+void draw() {
+  
+      fill(153,182,183);
     rect(0,400,500,100);
     
     fill(255,255,255);
@@ -11,6 +33,8 @@ void setup() {
     rect(200,380,100,20);
     rect(300,380,100,20);
     rect(400,380,100,20);
+    
+   
     
     fill(50,160,87);
     rect(0,280,500,100);
@@ -32,6 +56,25 @@ void setup() {
     fill(227,215,82);
     ellipse(260,320,10,10);
     
-}
 
-void draw() {}
+
+  
+  float position = lerp(500,0,t);
+  
+  x = position;
+  
+  println(x);
+  
+  translate(x,200);  
+  redCar.display();
+
+  translate(100,150);
+  frontWheel.spin();
+  
+  translate(200,0);
+  backWheel.spin();
+  
+  t += .01;
+  
+
+}

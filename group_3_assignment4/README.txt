@@ -1,0 +1,1 @@
+Open the group_3_assignment4.pde file. Each of the classes/subclasses should be opened in a separate tab within the Processing window. Click 'Run' to begin the animation, which will play continuously until the run is terminated.   

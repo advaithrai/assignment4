@@ -9,9 +9,17 @@ Puff puff3;
 
 Car redCar;
 
+Bird redBird;
+Bird brownBird;
 
-float x = 500;
-float t = 0.0;
+
+float x1 = 500;
+float x2 = 500;
+float x3 = 500;
+
+float t1 = 0.0;
+float t2 = 0.0;
+float t3 = 0.0;
 
 void setup() {
     size(500,500);
@@ -29,27 +37,32 @@ void setup() {
     
     redCar = new Car();
     
+    redBird = new Bird(255, 0, 4);
+    
+    brownBird = new Bird(210, 180, 140);
 
 }
 
 
 void draw() {
   background(160,238,240);
+  
   smoke1.display();
   puff1.display();
   
-  if (t > 1.5){
+  
+  if (t1 > 1.5){
     smoke2.display();
     puff2.display();
   }
   
-  if (t > 2){
+  if (t1 > 2){
     smoke3.display();
     puff3.display();
   }
   
   
-      fill(153,182,183);
+    fill(153,182,183);
     rect(0,400,500,100);
     
     fill(255,255,255);
@@ -84,16 +97,42 @@ void draw() {
 
 
   
-  float position = lerp(500,0,t);
-  
-  x = position;
+  float position1 = lerp(500,0,t1);
+  x1 = position1;
     
-  translate(x,200);  
+  translate(x1, 200);  
   redCar.display();
-
   
-  if (t <= 2.0) {
-  t += .01;}
+  float position2 = lerp(500, 0, t2);
+  x2 = position2;
   
+  translate(x2, -190);
+  redBird.display();
 
+  float position3 = lerp(500, 0, t3);
+  x3 = position3;
+  
+  translate((-x3), -40);
+  brownBird.display();
+  
+  if (t1 <= 2.0) {
+  t1 += .01;}
+  else{
+    t1 = 0.0;
+  }
+  
+  if(t2 <= 2.0){
+    t2 += .01;
+  }else{
+    t2 = 0.0;
+  }
+  
+  if(t3 <= 2.0){
+    t3 += .01;
+  }else{
+    t3 = 0.0;
+  }
+  
+  
+  
 }

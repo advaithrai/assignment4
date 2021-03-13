@@ -2,10 +2,36 @@ class Car {
   
   PShape car;
   
+  PShape wheel;
+  PShape wheel_2;
+  
+  float angle = 0.0;
   
   void display(){
     
+    PShape tire = createShape(ELLIPSE, 150,200,50,50);
+
+    PShape rim = createShape();
+    rim.beginShape();
+    rim.fill(255,255,255);
+    rim.vertex(140,190);
+    rim.vertex(160,190);
+    rim.vertex(160,210);
+    rim.vertex(140,210);
+    rim.endShape();
+    
+    wheel = createShape(GROUP);
+    wheel.addChild(tire);
+    wheel.addChild(rim);
+    
+    translate(100,0);
+    wheel_2 = createShape(GROUP);
+    wheel_2.addChild(tire);
+    wheel_2.addChild(rim);
+    
     car = createShape(GROUP);
+    
+
     
     PShape hood = createShape();
     hood.beginShape();
@@ -70,40 +96,20 @@ class Car {
     car.addChild(f_light);
     car.addChild(b_light);
     
+       
+    pushMatrix();
+    rotate(-angle);
+    popMatrix();
+    
+    angle += 0.03;
+    
+    car.addChild(wheel);
+    car.addChild(wheel_2);
+    
     shape(car);
+
  
   
   }
-
-}
-
-
-class Wheel {
-
-  PShape wheel;
-  
-  void display(){
-    
-    wheel = createShape(GROUP);
-    PShape tire = createShape(ELLIPSE, 50,50,50,50);
-
-    
-    PShape rim = createShape(RECT, 40,40, 20,20);
-    rim.beginShape();
-    rim.fill(255,255,255);
-    rim.endShape();
-    
-    wheel.addChild(tire);
-    wheel.addChild(rim);
-    
-    shape(wheel);
-  }
-  
-  void spin() {
-    display();
-  
-  }
-  
-  
 
 }

@@ -9,8 +9,6 @@ Puff puff3;
 
 Car redCar;
 
-Wheel frontWheel;
-Wheel backWheel;
 
 float x = 500;
 float t = 0.0;
@@ -31,8 +29,6 @@ void setup() {
     
     redCar = new Car();
     
-    frontWheel = new Wheel();
-    backWheel = new Wheel();
 
 }
 
@@ -82,7 +78,7 @@ void draw() {
     fill(216,94,52);
     rect(250,270,50,80);
     
-    fill(227,215,82);
+    fill(0,0,0);
     ellipse(260,320,10,10);
     
 
@@ -96,11 +92,7 @@ void draw() {
   translate(x,200);  
   redCar.display();
 
-  translate(100,150);
-  frontWheel.spin();
-  
-  translate(200,0);
-  backWheel.spin();
+
   
   if (t <= 2.0) {
   t += .01;}

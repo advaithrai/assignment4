@@ -7,24 +7,28 @@ class Car {
   
   float angle = 0.0;
   
+  float centerx = 150;
+  float centery = 200;
+  
   void display(){
     
-    PShape tire = createShape(ELLIPSE, 150,200,50,50);
+    PShape tire = createShape(ELLIPSE,0,0,50,50);
 
     PShape rim = createShape();
     rim.beginShape();
     rim.fill(255,255,255);
-    rim.vertex(140,190);
-    rim.vertex(160,190);
-    rim.vertex(160,210);
-    rim.vertex(140,210);
+    rim.vertex(140 - centerx,190 - centery);
+    rim.vertex(160 - centerx,190 - centery);
+    rim.vertex(160 - centerx,210 - centery);
+    rim.vertex(140 - centerx,210 - centery);
     rim.endShape();
     
     wheel = createShape(GROUP);
     wheel.addChild(tire);
     wheel.addChild(rim);
     
-    translate(100,0);
+    
+
     wheel_2 = createShape(GROUP);
     wheel_2.addChild(tire);
     wheel_2.addChild(rim);
@@ -97,16 +101,28 @@ class Car {
     car.addChild(b_light);
     
        
-    pushMatrix();
-    rotate(-angle);
-    popMatrix();
-    
-    angle += 0.03;
-    
-    car.addChild(wheel);
-    car.addChild(wheel_2);
+
     
     shape(car);
+
+    pushMatrix();
+    translate(340,200);
+    rotate(-angle);
+    shapeMode(CENTER);
+    shape(wheel);
+    popMatrix();
+    
+    pushMatrix();
+    translate(170,200);
+    rotate(-angle);
+    shapeMode(CENTER);
+    shape(wheel);
+    popMatrix();
+   
+
+    
+    angle += 0.1;
+    
 
  
   

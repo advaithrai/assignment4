@@ -87,11 +87,9 @@ void draw() {
   float position = lerp(500,0,t);
   
   x = position;
-  
-  
+    
   translate(x,200);  
   redCar.display();
-
 
   
   if (t <= 2.0) {
